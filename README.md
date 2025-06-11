@@ -18,8 +18,9 @@
      - *add database connection and get data from database*
 4. **Building our API image**
    - [**DockerCourseApi**] *add* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
-   - docker build -f .\DockerCourseApi\Dockerfile -t api .
-     - *create docker image 'api'*
+   - from directory 'DockerCourseApi'
+     - docker build -f .\DockerCourseApi\Dockerfile -t api .
+       - *create docker image 'api'*
    - docker run -p 1234:8080 api
      - *Now listening on: http://[::]:8080*
    - http://localhost:1234/podcasts
@@ -30,6 +31,15 @@
      - *create docker image 'api'*
 6. **Building Frontend image**
    - [**DockerCourseFrontend**] *add* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
+7. **Building Frontend image - UPDATE**
+   - [**DockerCourseFrontend**] *update* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
+   - from directory 'DockerCourseFrontend\DockerCourseFrontend'
+     - docker build -t frontend .
+       - *create docker image 'frontend'*
+   - docker run -p 1234:80 frontend
+     - *nginx/1.27.5*
+   - http://localhost:1234
+     - *DockerCourseFrontend*
 
 ## Docker Images
 
