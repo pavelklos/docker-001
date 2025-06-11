@@ -1,3 +1,6 @@
+using System.Data.SqlClient;
+using Dapper;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors();
@@ -6,18 +9,28 @@ var app = builder.Build();
 
 app.UseCors(x => x.AllowAnyOrigin());
 
-// app.MapGet("/", () => "Hello World!");
-app.MapGet("/podcasts", () => new List<string>
+app.MapGet("/podcasts", async () =>
 {
-    "Unhandled Exception Podcast",
-    "Developer Weekly Podcast",
-    "The Stack Overflow Podcast",
-    "The Hanselminutes Podcast",
-    "The .NET Rocks Podcast",
-    "The Azure Podcast",
-    "The AWS Podcast",
-    "The Rabbit Hole Podcast",
-    "The .NET Core Podcast",
+    var db = new SqlConnection("Server=tcp:localhost;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;");
+
+    var podcasts = (await db.QueryAsync<Podcast>("SELECT * FROM Podcasts")).Select(x => x.Title);
+
+    return podcasts;
+
+    // return new List<string>
+    // {
+    //     "Unhandled Exception Podcast",
+    //     "Developer Weekly Podcast",
+    //     "The Stack Overflow Podcast",
+    //     "The Hanselminutes Podcast",
+    //     "The .NET Rocks Podcast",
+    //     "The Azure Podcast",
+    //     "The AWS Podcast",
+    //     "The Rabbit Hole Podcast",
+    //     "The .NET Core Podcast",
+    // };
 });
 
 app.Run();
+
+record Podcast(Guid Id, string Title);
