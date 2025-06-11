@@ -24,6 +24,10 @@
      - *Now listening on: http://[::]:8080*
    - http://localhost:1234/podcasts
      - *ERROR: System.Data.SqlClient.SqlException*
+5. **Dockerfile 101**
+   - [**DockerCourseApi**] *update* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
+   - docker build -f .\DockerCourseApi\Dockerfile -t api .
+     - *create docker image 'api'*
 
 ## Docker Images
 
