@@ -1,6 +1,6 @@
 # docker-001
 
-- [**DockerCourseFrontend**]
+- [**DockerCourseFrontend**] [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
   - (Frontend SPA application) Blazor WebAssembly
 - [**DockerCourseApi**] [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
   - (Web API) ASP.NET Core Minimal API
@@ -28,18 +28,21 @@
    - [**DockerCourseApi**] *update* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
    - docker build -f .\DockerCourseApi\Dockerfile -t api .
      - *create docker image 'api'*
+6. **Building Frontend image**
+   - [**DockerCourseFrontend**] *add* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
 
 ## Docker Images
 
-- **Microsoft SQL Server - Ubuntu based images** <small>(for Database)</small>
+- **Microsoft SQL Server - Ubuntu based images** <small>for (Database)</small>
   - https://hub.docker.com/r/microsoft/mssql-server
   - docker pull mcr.microsoft.com/mssql/server
   - docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=dotnet#123" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
-- **.NET SDK** <small>(for DockerCourseApi)</small>
+- **.NET SDK** <small>for (DockerCourseApi, DockerCourseFrontend)</small>
   - https://hub.docker.com/r/microsoft/dotnet-sdk
   - docker pull mcr.microsoft.com/dotnet/sdk:9.0
-  - docker build -f .\DockerCourseApi\Dockerfile -t api .
-  - docker run -p 1234:8080 api
+- **ASP.NET Core Runtime** <small>for (DockerCourseApi, DockerCourseFrontend)</small>
+  - https://hub.docker.com/r/microsoft/dotnet-aspnet
+  - docker pull mcr.microsoft.com/dotnet/aspnet:9.0
 
 ## Connecting String to SQL Server
 
