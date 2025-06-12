@@ -62,3 +62,25 @@
 ```csharp
 "Server=tcp:localhost;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
 ```
+
+## Docker commands
+- [CLI reference](https://docs.docker.com/reference/cli/docker/)
+
+```csharp
+docker ps  // List containers
+docker run  // Create and run new container from image
+docker stop  // Stop one or more running containers
+docker rm  // Remove one or more containers
+docker logs  // Fetch the logs of a container
+docker attach  // Attach local standard input, output, and error streams to running container
+docker exec  // Execute command in running container
+docker commit  // Create new image from container's changes
+docker pull  // Download image from registry
+docker push  // Upload image to registry
+docker images  // List images
+docker rmi  // Remove one or more images
+docker tag  // Create tag TARGET_IMAGE that refers to SOURCE_IMAGE
+docker inspect  // Return low-level information on Docker objects
+
+docker builder prune  // Remove build cache
+```
