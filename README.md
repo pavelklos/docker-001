@@ -22,8 +22,8 @@
    - from directory 'DockerCourseApi'
      - docker build -f .\DockerCourseApi\Dockerfile -t api .
        - *create docker image 'api'*
-   - docker run -p 1234:8080 api
-     - *Now listening on: http://[::]:8080*
+   - docker run -p 1234:80 api
+     - *Now listening on: http://[::]:8080 ?(http://[::]:80)*
    - http://localhost:1234/podcasts
      - *ERROR: System.Data.SqlClient.SqlException*
 5. **Dockerfile 101**
