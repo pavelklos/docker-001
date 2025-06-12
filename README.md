@@ -36,8 +36,8 @@
    - [**DockerCourseFrontend**] *add* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
 7. **Building Frontend image - UPDATE**
    - [**DockerCourseFrontend**] *update* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
-   - from directory 'DockerCourseFrontend\DockerCourseFrontend'
-     - docker build -t frontend .
+   - from directory 'DockerCourseFrontend'
+     - docker build -f DockerCourseFrontend/Dockerfile -t frontend .
        - *create docker image 'frontend'*
    - docker run -p 1234:80 frontend
      - *nginx/1.27.5*
