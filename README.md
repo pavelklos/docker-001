@@ -16,6 +16,7 @@
    - [**DockerCourseApi**]
      - *add packages (Dapper, System.Data.SqlClient)*
      - *add database connection and get data from database*
+   - docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=dotnet#123" -p 1433:1433 mcr.microsoft.
 4. **Building our API image**
    - [**DockerCourseApi**] *add* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
    - from directory 'DockerCourseApi'
