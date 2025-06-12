@@ -1,11 +1,11 @@
 # docker-001
 
-- [**DockerCourseFrontend**] [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
-  - (Frontend SPA application) Blazor WebAssembly
-- [**DockerCourseApi**] [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
-  - (Web API) ASP.NET Core Minimal API
 - [**Database**] [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
   - (SQL Server)
+- [**DockerCourseApi**] [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
+  - (Web API) ASP.NET Core Minimal API
+- [**DockerCourseFrontend**] [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
+  - (Frontend SPA application) Blazor WebAssembly
 
 ## Steps
 
@@ -28,8 +28,10 @@
      - *ERROR: System.Data.SqlClient.SqlException*
 5. **Dockerfile 101**
    - [**DockerCourseApi**] *update* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
-   - docker build -f .\DockerCourseApi\Dockerfile -t api .
-     - *create docker image 'api'*
+   - from directory 'DockerCourseApi'
+     - docker build -f .\DockerCourseApi\Dockerfile -t api .
+       - *create docker image 'api'*
+   - *Docker keywords:* FROM, WORKDIR, COPY, RUN, EXPOSE, ENTRYPOINT
 6. **Building Frontend image**
    - [**DockerCourseFrontend**] *add* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
 7. **Building Frontend image - UPDATE**
