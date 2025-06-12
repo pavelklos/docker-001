@@ -10,7 +10,8 @@ services:
     image: api
     container_name: api
     ports:
-      - 17860:80
+      # - 17860:80
+      - 5027:80
 
   database:
     image: mcr.microsoft.com/mssql/server:2022-latest

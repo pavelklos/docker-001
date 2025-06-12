@@ -1,4 +1,4 @@
-# docker-001
+# docker-001 <small>(Docker Course steps)</small>
 
 [**docker-001**] [docker-compose.yaml](docker-compose.yaml)
 - [**Database**] [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
@@ -46,9 +46,16 @@
      - *DockerCourseFrontend*
 8. **docker-compose YAML file**
    - [**docker-001**] *add* [docker-compose.yaml](docker-compose.yaml)
-
-
-
+9. **docker compose CLI command**
+   - from directory 'docker-001'
+     - `docker compose up`
+     - `docker compose up -d`
+     - `docker compose logs`
+     - `docker compose logs api`
+     - `docker compose logs frontend`
+     - `docker compose logs database`
+     - `docker compose down`
+     - Ctrl+C
 
 ## Docker Images
 
@@ -93,6 +100,8 @@ docker inspect  // Return low-level information on Docker objects
 
 docker build  // Start build
 docker compose  // Define and run multi-container applications with Docker
+docker compose up  // Run containers in foreground (attached mode)
+docker compose up -d  // Run containers in background (detached mode)
 
 docker builder prune  // Remove build cache
 ```
