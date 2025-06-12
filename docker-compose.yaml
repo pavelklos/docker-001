@@ -1,0 +1,22 @@
+services:
+
+  frontend:
+    image: frontend
+    container_name: frontend
+    ports:
+      - 1234:80
+
+  api:
+    image: api
+    container_name: api
+    ports:
+      - 17860:80
+
+  database:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: database
+    environment:
+      - ACCEPT_EULA=true
+      - MSSQL_SA_PASSWORD=dotnet#123
+    ports:
+      - 1433:1433

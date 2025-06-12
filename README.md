@@ -43,6 +43,11 @@
      - *nginx/1.27.5*
    - http://localhost:1234
      - *DockerCourseFrontend*
+8. **docker-compose YAML file**
+   - [**docker-001**] *add* [docker-compose.yaml](docker-compose.yaml)
+
+
+
 
 ## Docker Images
 
