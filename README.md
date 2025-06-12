@@ -1,5 +1,6 @@
 # docker-001
 
+[**docker-001**] [docker-compose.yaml](docker-compose.yaml)
 - [**Database**] [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
   - (SQL Server)
 - [**DockerCourseApi**] [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
@@ -58,9 +59,12 @@
 - **.NET SDK** <small>for (DockerCourseApi, DockerCourseFrontend)</small>
   - https://hub.docker.com/r/microsoft/dotnet-sdk
   - docker pull mcr.microsoft.com/dotnet/sdk:9.0
-- **ASP.NET Core Runtime** <small>for (DockerCourseApi, DockerCourseFrontend)</small>
+- **ASP.NET Core Runtime** <small>for (DockerCourseApi)</small>
   - https://hub.docker.com/r/microsoft/dotnet-aspnet
   - docker pull mcr.microsoft.com/dotnet/aspnet:9.0
+- **nginx** <small>for (DockerCourseFrontend)</small>
+  - https://hub.docker.com/_/nginx
+  - docker pull nginx:alpine
 
 ## Connecting String to SQL Server
 
@@ -86,6 +90,9 @@ docker images  // List images
 docker rmi  // Remove one or more images
 docker tag  // Create tag TARGET_IMAGE that refers to SOURCE_IMAGE
 docker inspect  // Return low-level information on Docker objects
+
+docker build  // Start build
+docker compose  // Define and run multi-container applications with Docker
 
 docker builder prune  // Remove build cache
 ```
