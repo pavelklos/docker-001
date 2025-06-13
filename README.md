@@ -1,12 +1,33 @@
 # docker-001 <small>(Docker Course steps)</small>
 
+## Structure
+
 [**docker-001**] [docker-compose.yaml](docker-compose.yaml)
 - [**Database**] [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
   - (SQL Server)
+  - Docker image: [Microsoft SQL Server](https://hub.docker.com/r/microsoft/mssql-server)
+  - DNS entry: tcp:**database**
+  - Ports: **1433:1433**
 - [**DockerCourseApi**] [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
   - (Web API) ASP.NET Core Minimal API
+  - Docker image: [.NET SDK](https://hub.docker.com/r/microsoft/dotnet-sdk) ➤ [ASP.NET Core Runtime](https://hub.docker.com/r/microsoft/dotnet-aspnet)
+  - DNS entry: tcp:**api**
+  - Ports: **5027:80**
 - [**DockerCourseFrontend**] [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
   - (Frontend SPA application) Blazor WebAssembly
+  - Docker image: [.NET SDK](https://hub.docker.com/r/microsoft/dotnet-sdk) ➤ [nginx](https://hub.docker.com/_/nginx)
+  - DNS entry: tcp:**frontend**
+  - Ports: **1234:80**
+
+## Build & Run
+
+```batch
+# Start build & Run containers in foreground (attached mode)
+docker compose up --build
+
+# Open frontend SPA application (Blazor WebAssembly) in browser
+http://localhost:1234/
+```
 
 ## Steps
 
@@ -88,12 +109,12 @@
 ## Connecting String to SQL Server
 
 Default:
-- Server=tcp:localhost
+- Server=tcp:**localhost**
 ```csharp
 "Server=tcp:localhost;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
 ```
 Services as DNS entries:
-- Server=tcp:database
+- Server=tcp:**database**
 ```csharp
 "Server=tcp:database;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
 ```

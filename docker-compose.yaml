@@ -31,6 +31,6 @@ services:
   # database-seed:
   #   depends_on: [ database ]
   #   build:
-  #     context: Database/
+  #     context: ./Database
   #     dockerfile: Dockerfile
   #   container_name: database-seed
