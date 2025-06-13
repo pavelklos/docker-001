@@ -56,6 +56,11 @@
      - `docker compose logs database`
      - `docker compose down`
      - Ctrl+C
+10. **Services as DNS entries**
+    - DNS entries in [docker-compose.yaml](docker-compose.yaml)
+      - **frontend**, **api**, **database**
+    - [**DockerCourseApi**] *update* [Program.cs](DockerCourseApi/DockerCourseApi/Program.cs)
+      - *update Connecting String:* `Server=tcp:database`
 
 ## Docker Images
 
@@ -75,8 +80,15 @@
 
 ## Connecting String to SQL Server
 
+Default:
+- Server=tcp:localhost
 ```csharp
 "Server=tcp:localhost;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
+```
+Services as DNS entries:
+- Server=tcp:database
+```csharp
+"Server=tcp:database;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
 ```
 
 ## Docker commands
