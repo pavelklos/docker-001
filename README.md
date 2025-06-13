@@ -61,6 +61,13 @@
       - **frontend**, **api**, **database**
     - [**DockerCourseApi**] *update* [Program.cs](DockerCourseApi/DockerCourseApi/Program.cs)
       - *update Connecting String:* `Server=tcp:database`
+11. **Using docker compose to build our images**
+    - [**docker-001**] *update* [docker-compose.yaml]
+    - from directory 'docker-001'
+      - `docker compose build`
+      - `docker compose up`
+      ---
+      - `docker compose up --build`
 
 ## Docker Images
 

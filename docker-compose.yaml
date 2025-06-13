@@ -1,12 +1,18 @@
 services:
 
   frontend:
+    build:
+      context: ./DockerCourseFrontend
+      dockerfile: DockerCourseFrontend/Dockerfile
     image: frontend
     container_name: frontend
     ports:
       - 1234:80
 
   api:
+    build:
+      context: ./DockerCourseApi
+      dockerfile: DockerCourseApi/Dockerfile
     image: api
     container_name: api
     ports:
@@ -21,3 +27,10 @@ services:
       - MSSQL_SA_PASSWORD=dotnet#123
     ports:
       - 1433:1433
+
+  # database-seed:
+  #   depends_on: [ database ]
+  #   build:
+  #     context: Database/
+  #     dockerfile: Dockerfile
+  #   container_name: database-seed
