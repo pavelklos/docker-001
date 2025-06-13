@@ -3,21 +3,27 @@
 ## Structure
 
 [**docker-001**] [docker-compose.yaml](docker-compose.yaml)
-- [**Database**] [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
+
+- [**Database**]
   - (SQL Server)
   - Docker image: [Microsoft SQL Server](https://hub.docker.com/r/microsoft/mssql-server)
-  - DNS entry: tcp:**database**
+  - Container name: **database**
   - Ports: **1433:1433**
 - [**DockerCourseApi**] [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
   - (Web API) ASP.NET Core Minimal API
   - Docker image: [.NET SDK](https://hub.docker.com/r/microsoft/dotnet-sdk) ➤ [ASP.NET Core Runtime](https://hub.docker.com/r/microsoft/dotnet-aspnet)
-  - DNS entry: tcp:**api**
+  - Container name: **api**
   - Ports: **5027:80**
 - [**DockerCourseFrontend**] [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
   - (Frontend SPA application) Blazor WebAssembly
   - Docker image: [.NET SDK](https://hub.docker.com/r/microsoft/dotnet-sdk) ➤ [nginx](https://hub.docker.com/_/nginx)
-  - DNS entry: tcp:**frontend**
+  - Container name: **frontend**
   - Ports: **1234:80**
+- [**Database**] **database-seed** [Dockerfile](Database/Dockerfile)
+  - (SQL Server) ➤ (Mssql Tools) sqlcmd
+  - Docker image: [Microsoft SQL Server](https://hub.docker.com/r/microsoft/mssql-server)
+  - Container name: **database-seed**
+  - Seed: [wait-and-run.sh](Database/wait-and-run.sh) ➤ [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
 
 ## Build & Run
 
@@ -53,7 +59,7 @@ http://localhost:1234/
    - from directory 'DockerCourseApi'
      - docker build -f .\DockerCourseApi\Dockerfile -t api .
        - *create docker image 'api'*
-   - *Docker keywords:* FROM, WORKDIR, COPY, RUN, EXPOSE, ENTRYPOINT
+   - *Docker keywords:* FROM, WORKDIR, COPY, RUN, EXPOSE, ENTRYPOINT, CMD
 6. **Building Frontend image**
    - [**DockerCourseFrontend**] *add* [Dockerfile](DockerCourseFrontend/DockerCourseFrontend/Dockerfile)
 7. **Building Frontend image - UPDATE**
@@ -83,12 +89,25 @@ http://localhost:1234/
     - [**DockerCourseApi**] *update* [Program.cs](DockerCourseApi/DockerCourseApi/Program.cs)
       - *update Connecting String:* `Server=tcp:database`
 11. **Using docker compose to build our images**
-    - [**docker-001**] *update* [docker-compose.yaml]
+    - [**docker-001**] *update* [docker-compose.yaml](docker-compose.yaml)
     - from directory 'docker-001'
       - `docker compose build`
       - `docker compose up`
       ---
       - `docker compose up --build`
+12. **Seeding our database**
+    - [**Database**] *add* [wait-and-run.sh](Database/wait-and-run.sh) 
+    - [**Database**] *add* [Dockerfile](Database/Dockerfile) 
+    - [**docker-001**] *update* [docker-compose.yaml](docker-compose.yaml)
+    - from directory 'docker-001'
+      - `docker compose up --build`
+      - !!! Database seeding IS NOT complete !!! 
+        ```bash
+        database-seed  | Not ready yet...
+        database-seed  | /wait-and-run.sh: line 19: /opt/mssql-tools/bin/sqlcmd: No such file or directory
+        database-seed exited with code 127
+        ```
+
 
 ## Docker Images
 

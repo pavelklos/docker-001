@@ -28,9 +28,9 @@ services:
     ports:
       - 1433:1433
 
-  # database-seed:
-  #   depends_on: [ database ]
-  #   build:
-  #     context: ./Database
-  #     dockerfile: Dockerfile
-  #   container_name: database-seed
+  database-seed:
+    depends_on: [ database ]
+    build:
+      context: ./Database
+      dockerfile: Dockerfile
+    container_name: database-seed
