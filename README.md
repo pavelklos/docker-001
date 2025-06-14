@@ -115,6 +115,7 @@ http://localhost:1234/
     - *There are 2 possible solutions*
       - **Solution 1**: change 2 files [**Database**] [wait-and-run.sh](Database/wait-and-run.sh) & [Dockerfile](Database/Dockerfile)
       - **Solution 2**: change 1 file [**docker-001**] [docker-compose.yaml](docker-compose.yaml)
+    - **SQL Server Docker Seeding - Complete Fix Guide** [sql-server-seeding-fix-guide.md](sql-server-seeding-fix-guide.md)
 
 ## Docker Images
 
