@@ -21,11 +21,11 @@
   - Ports: **1234:80**
 - [**Database**] **database-seed** [Dockerfile](Database/Dockerfile)
   - (SQL Server) ➤ (Mssql Tools) sqlcmd
-  - Docker image: [Microsoft SQL Server](https://hub.docker.com/r/microsoft/mssql-server)
+  - Docker image: [Microsoft SQL Server](https://hub.docker.com/r/microsoft/mssql-server) ➤ [Mssql Tools](https://hub.docker.com/r/microsoft/mssql-tools/)
   - Container name: **database-seed**
   - Seed: [wait-and-run.sh](Database/wait-and-run.sh) ➤ [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
 
-## Build & Run
+## Build, Run & Stop Docker containers
 
 ```batch
 # Start build & Run containers in foreground (attached mode)
@@ -33,6 +33,13 @@ docker compose up --build
 
 # Open frontend SPA application (Blazor WebAssembly) in browser
 http://localhost:1234/
+
+# Open Web API (ASP.NET Core Minimal API) in browser
+http://localhost:5027/podcasts
+http://localhost:5027/test-connection
+
+# Stop containers (Ctrl+C)
+docker compose down
 ```
 
 ## Steps
@@ -123,17 +130,20 @@ http://localhost:1234/
 
 - **Microsoft SQL Server - Ubuntu based images** <small>for (Database)</small>
   - https://hub.docker.com/r/microsoft/mssql-server
-  - docker pull mcr.microsoft.com/mssql/server
-  - docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=dotnet#123" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest
+  - `docker pull mcr.microsoft.com/mssql/server`
+  - `docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=dotnet#123" -p 1433:1433 mcr.microsoft.com/mssql/server:2022-latest`
 - **.NET SDK** <small>for (DockerCourseApi, DockerCourseFrontend)</small>
   - https://hub.docker.com/r/microsoft/dotnet-sdk
-  - docker pull mcr.microsoft.com/dotnet/sdk:9.0
+  - `docker pull mcr.microsoft.com/dotnet/sdk:9.0`
 - **ASP.NET Core Runtime** <small>for (DockerCourseApi)</small>
   - https://hub.docker.com/r/microsoft/dotnet-aspnet
-  - docker pull mcr.microsoft.com/dotnet/aspnet:9.0
+  - `docker pull mcr.microsoft.com/dotnet/aspnet:9.0`
 - **nginx** <small>for (DockerCourseFrontend)</small>
   - https://hub.docker.com/_/nginx
-  - docker pull nginx:alpine
+  - `docker pull nginx:alpine`
+- **Mssql Tools** <small>for database seeding (sqlcmd)</small>
+  - https://hub.docker.com/r/microsoft/mssql-tools/
+  - `docker pull mcr.microsoft.com/mssql/tools`
 
 ## Connecting String to SQL Server
 
