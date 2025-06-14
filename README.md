@@ -156,6 +156,9 @@ Services as DNS entries:
 - Server=tcp:**database**
 ```csharp
 "Server=tcp:database;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30;"
+
+// updated (port 1433, Encrypt=False)
+"Server=tcp:database,1433;Initial Catalog=podcasts;Persist Security Info=False;User ID=sa;Password=dotnet#123;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=True;Connection Timeout=30;"
 ```
 
 ## Docker commands
