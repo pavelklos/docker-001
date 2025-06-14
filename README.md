@@ -144,6 +144,20 @@ docker compose down
     - from directory 'docker-001'
       - `docker compose build`
       - `docker compose push`
+15. **Docker and CI/CD**
+    - Docker docs:
+      - [Continuous integration with Docker](https://docs.docker.com/build/ci/)
+      - [Docker Build GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
+    - from directory 'docker-001'
+      - *add folder* [.github/workflows/](.github/workflows/)
+        - *add files* ['build-api.yml](.github/workflows/build-api.yml), [build-frontend.yml](.github/workflows/build-frontend.yml) to the folder
+    - [GitHub Actions](https://github.com/pavelklos/docker-001/actions/)
+    - **docker buildx** is extended version of **docker build** command, providing enhanced features for building Docker images using **BuildKit** backend
+      - `docker buildx`
+
+
+
+
 
 ## Docker Images
 
@@ -203,6 +217,7 @@ docker build  // Start build
 docker compose  // Define and run multi-container applications with Docker
 docker compose up  // Run containers in foreground (attached mode)
 docker compose up -d  // Run containers in background (detached mode)
+docker compose down  // Stop and remove containers, networks, volumes, and images
 
 docker builder prune  // Remove build cache
 ```
