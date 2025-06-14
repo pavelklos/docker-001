@@ -107,7 +107,7 @@ http://localhost:1234/
         database-seed  | /wait-and-run.sh: line 19: /opt/mssql-tools/bin/sqlcmd: No such file or directory
         database-seed exited with code 127
         ```
-13. **Seeding our database - UPDATE** (resolved uncompleted seeding)
+13. **Seeding our database - UPDATE** (resolved uncompleted seeding & docker compose issues)
     - *Resolved by [Claude Sonnet 4](https://claude.ai/) (changes in 3 files)*
       - [**Database**] *update* [wait-and-run.sh](Database/wait-and-run.sh)
       - [**Database**] *update* [Dockerfile](Database/Dockerfile)
@@ -115,7 +115,9 @@ http://localhost:1234/
     - *There are 2 possible solutions*
       - **Solution 1**: change 2 files [**Database**] [wait-and-run.sh](Database/wait-and-run.sh) & [Dockerfile](Database/Dockerfile)
       - **Solution 2**: change 1 file [**docker-001**] [docker-compose.yaml](docker-compose.yaml)
-    - **SQL Server Docker Seeding - Complete Fix Guide** [sql-server-seeding-fix-guide.md](sql-server-seeding-fix-guide.md)
+    - *Fix guides by [Claude Sonnet 4](https://claude.ai/)*
+      - **SQL Server Docker Seeding - Complete Fix Guide** [sql-server-seeding-fix-guide.md](sql-server-seeding-fix-guide.md)
+      - **Docker Compose (.NET API + SQL Server) Fix Guide** [docker-compose-fix-guide.md](docker-compose-fix-guide.md)
 
 ## Docker Images
 
