@@ -125,6 +125,25 @@ docker compose down
     - *Fix guides by [Claude Sonnet 4](https://claude.ai/)*
       - **SQL Server Docker Seeding - Complete Fix Guide** [sql-server-seeding-fix-guide.md](sql-server-seeding-fix-guide.md)
       - **Docker Compose (.NET API + SQL Server) Fix Guide** [docker-compose-fix-guide.md](docker-compose-fix-guide.md)
+14. **Pushing images to Docker Hub**
+    - [Docker Hub (Repositories)](https://hub.docker.com/repositories/)
+      - [Create repository] **dotnet-001-api**
+      - [Create repository] **dotnet-001-frontend**
+    - from directory 'docker-001'
+      - `docker login`
+    - from directory 'DockerCourseApi'
+      - `docker build -f .\DockerCourseApi\Dockerfile -t pavelklos/dotnet-001-api .`
+      - `docker push pavelklos/dotnet-001-api`
+    - from directory 'DockerCourseFrontend' 
+      - `docker build -f .\DockerCourseFrontend\Dockerfile -t pavelklos/dotnet-001-frontend .`
+      - `docker push pavelklos/dotnet-001-frontend`
+    - [**docker-001**] *update* [docker-compose.yaml](docker-compose.yaml)
+      - *update image: for **frontend** & **api***
+        - `image: pavelklos/dotnet-001-frontend`
+        - `image: pavelklos/dotnet-001-api`
+    - from directory 'docker-001'
+      - `docker compose build`
+      - `docker compose push`
 
 ## Docker Images
 
