@@ -57,3 +57,6 @@ app.MapGet("/test-connection", async () =>
 app.Run();
 
 record Podcast(Guid Id, string Title);
+
+// Make Program accessible to tests
+public partial class Program { }
