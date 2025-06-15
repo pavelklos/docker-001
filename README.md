@@ -150,10 +150,11 @@ docker compose down
       - [Docker Build GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
     - from directory 'docker-001'
       - *add folder* [.github/workflows/](.github/workflows/)
-        - *add files* ['build-api.yml](.github/workflows/build-api.yml), [build-frontend.yml](.github/workflows/build-frontend.yml) to the folder
+        - *add files* ['build-api.yml](.github/workflows/build-api.yml), [build-frontend.yml](.github/workflows/build-frontend.yml) *to the folder*
     - [GitHub Actions](https://github.com/pavelklos/docker-001/actions/)
     - **docker buildx** is extended version of **docker build** command, providing enhanced features for building Docker images using **BuildKit** backend
       - `docker buildx`
+16. **Leveraging Docker for Testing**
 
 
 
