@@ -154,9 +154,15 @@ docker compose down
     - [GitHub Actions](https://github.com/pavelklos/docker-001/actions/)
     - **docker buildx** is extended version of **docker build** command, providing enhanced features for building Docker images using **BuildKit** backend
       - `docker buildx`
-16. **Leveraging Docker for Testing**
+16. **Leveraging Docker for Testing** ⚠️TODO: **TRY TESTS & GITHUB ACTIONS BY CI/CD**⚠️
     - [**DockerCourseApi**] *add test project* [**DockerCourseApi.Tests**]
-
+    - [**DockerCourseApi**] *update* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
+    - [**.github/workflows/**] *update* [build-api.yml](.github/workflows/build-api.yml)
+    - from directory 'docker-001'
+      - `docker compose up database`
+      - `docker compose up database-seed`
+    - from directory 'DockerCourseApi'
+      - `docker build -f .\DockerCourseApi\Dockerfile --network host .`
 
 
 
