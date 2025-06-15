@@ -155,7 +155,7 @@ docker compose down
     - **docker buildx** is extended version of **docker build** command, providing enhanced features for building Docker images using **BuildKit** backend
       - `docker buildx`
 16. **Leveraging Docker for Testing**
-
+    - [**DockerCourseApi**] *add test project* [**DockerCourseApi.Tests**]
 
 
 
