@@ -150,7 +150,7 @@ docker compose down
       - [Docker Build GitHub Actions](https://docs.docker.com/build/ci/github-actions/)
     - from directory 'docker-001'
       - *add folder* [.github/workflows/](.github/workflows/)
-        - *add files* ['build-api.yml](.github/workflows/build-api.yml), [build-frontend.yml](.github/workflows/build-frontend.yml) *to the folder*
+        - *add files* [build-api.yml](.github/workflows/build-api.yml), [build-frontend.yml](.github/workflows/build-frontend.yml) *to the folder*
     - [GitHub Actions](https://github.com/pavelklos/docker-001/actions/)
     - **docker buildx** is extended version of **docker build** command, providing enhanced features for building Docker images using **BuildKit** backend
       - `docker buildx`
@@ -190,6 +190,15 @@ docker compose down
     - `docker volume inspect dotnet-001-podcasts`
     - `docker volume rm dotnet-001-podcasts`
     - `docker volume prune`
+20. **Mounting volumes in containers**
+    - from directory 'docker-001'
+      - *add folder* [Volumes](Volumes/)
+        - *add files* [SqlServerBindMountDemo.ps1](Volumes/SqlServerBindMountDemo.ps1), [SqlServerVolumeDemo.ps1](Volumes/SqlServerVolumeDemo.ps1) *to the folder*
+    - [SqlServerVolumeDemo.ps1](Volumes/SqlServerVolumeDemo.ps1)
+      - `-v sqldb-data:/var/opt/mssql` *-v <volume_name>:<container_path>*
+    - from directory 'Volumes' ⚠️TODO: **TRY SCRIPT EXECUTION**⚠️
+      - `Unblock-File -Path .\SqlServerVolumeDemo.ps1` *Unblock script execution*
+      - `.\SqlServerVolumeDemo.ps1`
 
 
 
