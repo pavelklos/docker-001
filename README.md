@@ -163,8 +163,12 @@ docker compose down
       - `docker compose up database-seed`
     - from directory 'DockerCourseApi'
       - `docker build -f .\DockerCourseApi\Dockerfile --network host .`
-
-
+17. **Spikes**
+    - **Redis (Remote Dictionary Server)** [redis](https://hub.docker.com/_/redis)
+      - `docker run -p 6379:6379 redis`
+    - [**LINQPad**](https://www.linqpad.net/) (.NET Programmer’s Playground)
+      - *popular tool for .NET developers to interactively query databases, test code snippets, and explore data using LINQ*
+      - *execute query* [Spikes.linq](LINQPad/Spikes.linq)
 
 ## Docker Images
 
