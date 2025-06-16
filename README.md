@@ -207,7 +207,7 @@ docker compose down
       - `.\SqlServerBindMountDemo.ps1`
     - from directory 'docker-001/Volumes'
       - *add folder* [html](Volumes/html/)
-        - *add file* [](Volumes/html/index.html) *to the folder*
+        - *add file* [index.html](Volumes/html/index.html) *to the folder*
     - http://localhost:1234
 
 
