@@ -241,6 +241,14 @@ docker compose down
       # Backup to specific location
       .\VolumeBackup-sqldb-data.ps1 -Action backup -BackupPath "./my-backups"
       ```
+25. **Anonymous volumes and Dockerfile VOLUME instruction**
+    - [rabbitmq (Dockerfile)](https://github.com/docker-library/rabbitmq/blob/master/4.1/alpine/Dockerfile)
+      - `VOLUME $RABBITMQ_DATA_DIR`
+    ```bash
+    docker run -v /mydata alpine  # Create anonymous volume
+    docker run --name rabbitmq rabbitmq  # Create anonymous volume
+    docker volume ls
+    ```
 
 
 
