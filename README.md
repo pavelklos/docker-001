@@ -223,6 +223,12 @@ docker compose down
       - `docker compose up`
       - `docker compose down`
       - `docker compose up database`  *seeded data are still available by volume*
+23. **Backing up volumes**
+    - from directory 'docker-001/Volumes'
+      - *add file* [VolumeBackup.ps1](Volumes/VolumeBackup.ps1)
+    - from directory 'Volumes' ⚠️TODO: **TRY SCRIPT EXECUTION**⚠️
+      - `Unblock-File -Path .\VolumeBackup.ps1` *Unblock script execution*
+      - `.\VolumeBackup.ps1`
 
 
 
