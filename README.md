@@ -249,6 +249,27 @@ docker compose down
     docker run --name rabbitmq rabbitmq  # Create anonymous volume
     docker volume ls
     ```
+26. **Default bridge network**
+    - `docker network ls`
+    ```bash
+    NETWORK ID     NAME                 DRIVER    SCOPE
+    8d5c00d59d03   bridge               bridge    local
+    fb6c7168c99c   host                 host      local
+    a925db299a5c   none                 null      local
+    ```
+    - *Containers can communicate with each other by IP address*
+    ```bash
+    docker network inspect bridge  # "Subnet": "172.17.0.0/16", "Gateway": "172.17.0.1"
+    docker run -d --name container-a nginx  # create container-a
+    docker run -d --name container-b nginx  # create container-b
+    docker network inspect bridge
+      # "Containers": {...} "Name": "container-a", "IPv4Address": "172.17.0.2/16"
+      # "Containers": {...} "Name": "container-b", "IPv4Address": "172.17.0.3/16"
+    docker inspect container-a  # "Networks": {...} "bridge": {...} "IPAddress": "172.17.0.2"
+    docker inspect container-b  # "Networks": {...} "bridge": {...} "IPAddress": "172.17.0.3"
+    docker run -it --rm --name container-c alpine  # get shell
+      > ping 172.17.0.2  # container-c communicates with container-a by IP address
+    ```
 
 
 
@@ -318,4 +339,6 @@ docker compose down  // Stop and remove containers, networks, volumes, and image
 docker builder prune  // Remove build cache
 
 docker volume  // Manage volumes
+
+docker network  // Manage networks
 ```
