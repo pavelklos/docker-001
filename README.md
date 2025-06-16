@@ -209,6 +209,20 @@ docker compose down
       - *add folder* [html](Volumes/html/)
         - *add file* [index.html](Volumes/html/index.html) *to the folder*
     - http://localhost:1234
+22. **Volumes in Docker compose**
+    - *update* [docker-compose.yaml](docker-compose.yaml) *add volumes:*
+      ```
+      volumes:
+        sqldb-data:
+      ```
+      ```
+      volumes:
+      - sqldb-data:/var/opt/mssql
+      ```
+    - from directory 'docker-001'
+      - `docker compose up`
+      - `docker compose down`
+      - `docker compose up database`  *seeded data are still available by volume*
 
 
 

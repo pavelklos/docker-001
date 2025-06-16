@@ -1,3 +1,7 @@
+volumes:
+  sqldb-data:
+    # external: true
+
 services:
 
   frontend:
@@ -31,6 +35,8 @@ services:
       - MSSQL_SA_PASSWORD=dotnet#123
     ports:
       - 1433:1433
+    volumes:
+      - sqldb-data:/var/opt/mssql
 
   database-seed:
     depends_on: [ database ]
