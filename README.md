@@ -229,6 +229,18 @@ docker compose down
     - from directory 'Volumes' ⚠️TODO: **TRY SCRIPT EXECUTION**⚠️
       - `Unblock-File -Path .\VolumeBackup.ps1` *Unblock script execution*
       - `.\VolumeBackup.ps1`
+24. **Backing up volumes (sqldb-data)**
+    - from directory 'docker-001/Volumes'
+      - *add file* [VolumeBackup-sqldb-data.ps1](Volumes/VolumeBackup-sqldb-data.ps1)
+    - from directory 'Volumes' ⚠️TODO: **TRY SCRIPT EXECUTION**⚠️
+      ```bash
+      # Backup the volume
+      .\VolumeBackup-sqldb-data.ps1 -Action backup
+      # Restore the volume
+      .\VolumeBackup-sqldb-data.ps1 -Action restore
+      # Backup to specific location
+      .\VolumeBackup-sqldb-data.ps1 -Action backup -BackupPath "./my-backups"
+      ```
 
 
 
