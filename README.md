@@ -270,6 +270,44 @@ docker compose down
     docker run -it --rm --name container-c alpine  # get shell
       > ping 172.17.0.2  # container-c communicates with container-a by IP address
     ```
+27. **Custom bridge networks**
+    - **VS Code (Containers-Networks)**
+    ---
+    - `docker network create network-a`
+    - `docker network create network-b`
+    - `docker network ls`
+    ```bash
+    8d5c00d59d03   bridge               bridge    local
+    4fea74ee4ed7   network-a            bridge    local
+    2e93bd66f197   network-b            bridge    local
+    fb6c7168c99c   host                 host      local
+    a925db299a5c   none                 null      local
+    ```
+    ```bash
+    docker network inspect bridge  # "Subnet": "172.17.0.0/16"
+    docker network inspect network-a  # "Subnet": "172.19.0.0/16"
+    docker network inspect network-b  # "Subnet": "172.20.0.0/16"
+    ```
+    ```bash
+    docker run -it --rm --name container-a1 --network network-a alpine  # get shell
+    docker run -it --rm --name container-a2 --network network-a alpine  # get shell
+    docker run -it --rm --name container-b1 --network network-b alpine  # get shell
+    docker run -it --rm --name container-b2 --network network-b --hostname dotnet alpine  # get shell
+    docker ps  # 4x CONTAINER ID
+    ```
+    ```bash
+    # from shell
+      > ping CONTAINER ID  # by CONTAINER ID (in the same network)  
+      > ping dotnet  # by hostname (in the same network)
+    ```
+    ```bash
+    docker network connect network-a container-b1
+
+    # from shell
+      > ping dotnet  # by hostname (in other network)
+    
+    docker network disconnect network-a container-b1
+    ```
 
 
 
