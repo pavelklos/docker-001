@@ -199,6 +199,16 @@ docker compose down
     - from directory 'Volumes' ⚠️TODO: **TRY SCRIPT EXECUTION**⚠️
       - `Unblock-File -Path .\SqlServerVolumeDemo.ps1` *Unblock script execution*
       - `.\SqlServerVolumeDemo.ps1`
+21. **Mounting bind mounts in containers**
+    - [SqlServerBindMountDemo.ps1](Volumes/SqlServerBindMountDemo.ps1)
+      - `-v ${pwd}/html:/usr/share/nginx/html` *-v <volume_path>:<container_path>*
+    - from directory 'Volumes' ⚠️TODO: **TRY SCRIPT EXECUTION**⚠️
+      - `Unblock-File -Path .\SqlServerBindMountDemo.ps1` *Unblock script execution*
+      - `.\SqlServerBindMountDemo.ps1`
+    - from directory 'docker-001/Volumes'
+      - *add folder* [html](Volumes/html/)
+        - *add file* [](Volumes/html/index.html) *to the folder*
+    - http://localhost:1234
 
 
 
