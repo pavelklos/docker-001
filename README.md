@@ -308,8 +308,29 @@ docker compose down
     
     docker network disconnect network-a container-b1
     ```
-
-
+28. **Networking on Docker Compose**
+    - `docker compose up -d`
+    - `docker network ls`
+    ```bash
+    NETWORK ID     NAME                 DRIVER    SCOPE
+    8d5c00d59d03   bridge               bridge    local
+    d63b3e0904d8   docker-001_default   bridge    local
+    4fea74ee4ed7   network-a            bridge    local
+    2e93bd66f197   network-b            bridge    local
+    fb6c7168c99c   host                 host      local
+    a925db299a5c   none                 null      local
+    ```
+    ```bash
+    docker compose up -d
+    docker network connect docker-001_default container-a1  # container-a1 is in other network
+    # from shell
+      > ping api  # by hostname (in other network)  
+    docker network disconnect docker-001_default container-a1  # container-a1 is in other network
+    docker compose down
+    ```
+    - [Networking in Compose](https://docs.docker.com/compose/how-tos/networking/)
+      - [docker-compose.yaml](docker-compose.yaml)
+        - `networks:`
 
 ## Docker Images
 
