@@ -331,6 +331,24 @@ docker compose down
     - [Networking in Compose](https://docs.docker.com/compose/how-tos/networking/)
       - [docker-compose.yaml](docker-compose.yaml)
         - `networks:`
+29. **Host network**
+    - [Host network driver](https://docs.docker.com/engine/network/drivers/host/)
+    - *from 'Linux'*
+      ```bash
+      $ systemctl stop nginx
+      $ systemctl start nginx
+      $ docker run -it --rm curlimages/curl sh
+        $ curl localhost  # error
+        $ exit
+      $ docker run -it --rm --network host curlimages/curl sh
+        $ curl localhost  # ok
+        $ exit
+      $ docker run --rm -p 80:80 nginx  # error
+      $ docker run --rm -p 1234:80 nginx  # not working
+      $ docker run --rm --network host nginx  # error
+      $ systemctl stop nginx
+      $ docker run --rm --network host nginx  # ok
+      ```
 
 ## Docker Images
 
