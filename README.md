@@ -359,6 +359,14 @@ docker compose down
       # To allow the same kube context to work on the host and the container:
       127.0.0.1 kubernetes.docker.internal
       ```
+31. **Summary of other network types**
+    - [Networking overview](https://docs.docker.com/engine/network) *Network drivers*
+      - [Bridge](https://docs.docker.com/engine/network/drivers/bridge/)
+      - [Host](https://docs.docker.com/engine/network/drivers/host/)
+      - [None](https://docs.docker.com/engine/network/drivers/none/)
+      - [Macvlan](https://docs.docker.com/engine/network/drivers/macvlan/)
+      - [IPvlan](https://docs.docker.com/engine/network/drivers/ipvlan/)
+      - [Overlay](https://docs.docker.com/engine/network/drivers/overlay/)
 
 ## Docker Images
 
