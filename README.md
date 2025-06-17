@@ -349,6 +349,16 @@ docker compose down
       $ systemctl stop nginx
       $ docker run --rm --network host nginx  # ok
       ```
+30. **Leveraging host.docker.internal**
+    - *file* [**hosts**] *C:\Windows\System32\drivers\etc\hosts*
+      ```bash
+      # Added by Docker Desktop
+      192.168.0.2 host.docker.internal
+      192.168.0.2 gateway.docker.internal
+
+      # To allow the same kube context to work on the host and the container:
+      127.0.0.1 kubernetes.docker.internal
+      ```
 
 ## Docker Images
 
