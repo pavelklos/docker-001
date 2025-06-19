@@ -367,6 +367,19 @@ docker compose down
       - [Macvlan](https://docs.docker.com/engine/network/drivers/macvlan/)
       - [IPvlan](https://docs.docker.com/engine/network/drivers/ipvlan/)
       - [Overlay](https://docs.docker.com/engine/network/drivers/overlay/)
+32. **Image scanning**
+    - [Docker Security Scanning Guide](https://snyk.io/articles/docker-security-scanning/)
+    ```bash
+    docker scout
+    docker scout cves
+    docker scout cves --help
+    docker scout cves alpine
+    docker scout cves alpine:3.19.7
+    # --only-fixed          Filter to fixable CVEs
+    # -o, --output string   Write report to file
+    ```
+
+
 
 ## Docker Images
 
