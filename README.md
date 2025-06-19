@@ -419,6 +419,64 @@ docker compose down
       $ cd CONTAINER ID  # by (CONTAINER ID)  $ ls
       $ cut memory.max_usage_in_bytes  # 104329216
       ```
+35. **Difference between ENTRYPOINT and CMD in Dockerfile**
+    ```dockerfile
+    COPY --from=build /app/publish .
+    ENTRYPOINT ["dotnet", "DockerCourseApi.dll"]
+    CMD ["myarg1", "myarg2"]
+    ```
+    ```bash
+    docker run myimage  # > dotnet DockerCourseApi.dll myarg1 myarg2
+    docker run myimage myotherarg  # > dotnet DockerCourseApi.dll myotherarg  # overwrite default arguments (myarg1, myarg2)
+    docker run -it --rm myimage sh
+    docker run -it --rm myimage bash
+    docker run -it --rm --entrypoint bash myimage
+    ```
+    - *add folder* [**EntryPointVsCmdExamples**] *add file* [Dockerfile](EntryPointVsCmdExamples/Dockerfile)
+    ---
+    ```dockerfile
+    FROM alpine
+    ENTRYPOINT ["echo", "hello"]
+    ```
+    ```bash
+    docker build -t epcmd .
+    docker run --rm epcmd  # hello
+    docker run --rm epcmd world  # hello world
+    ```
+    ---
+    ```dockerfile
+    FROM alpine
+    ENTRYPOINT ["echo", "hello"]
+    CMD ["world"]
+    ```
+    ```bash
+    docker build -t epcmd .
+    docker run --rm epcmd  # hello world
+    docker run --rm epcmd world  # hello world  # default argument
+    docker run --rm epcmd dotnet  # hello dotnet  # overwrite default argument (world)
+    ```
+    ---
+    ```dockerfile
+    FROM alpine
+    CMD ["world"]
+    ```
+    ```bash
+    docker build -t epcmd .
+    docker run --rm epcmd  # docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "world": executable file not found in $PATH: unknown
+    docker run --rm epcmd ls  # execute ls  # overwrite default argument (world)
+    ```
+    ---   
+    ```dockerfile
+    FROM alpine
+    ENTRYPOINT ["ls"]
+    ```
+    ```bash
+    docker build -t epcmd .
+    docker run --rm epcmd  # execute ls
+    docker run --rm epcmd ls  # ls: ls: No such file or directory
+    docker run --rm epcmd usr  # execute ls usr
+    docker run --rm epcmd --entrypoint ps usr
+    ```
 
 ## Docker Images
 
