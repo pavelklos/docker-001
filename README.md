@@ -24,6 +24,8 @@
   - Docker image: [Microsoft SQL Server](https://hub.docker.com/r/microsoft/mssql-server) ➤ [Mssql Tools](https://hub.docker.com/r/microsoft/mssql-tools/)
   - Container name: **database-seed**
   - Seed: [wait-and-run.sh](Database/wait-and-run.sh) ➤ [CreateDatabaseAndSeed.sql](Database/CreateDatabaseAndSeed.sql)
+- [**EntryPointVsCmdExamples**] [Dockerfile](EntryPointVsCmdExamples/Dockerfile)
+  - *Difference between **ENTRYPOINT** and **CMD** in Dockerfile*
 
 ## Build, Run & Stop Docker containers
 
