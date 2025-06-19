@@ -477,6 +477,26 @@ docker compose down
     docker run --rm epcmd usr  # execute ls usr
     docker run --rm epcmd --entrypoint ps usr
     ```
+36. **Tip Creating command line aliases**
+    ```bash
+    # BEFORE
+    docker ps
+    docker run ...
+    docker compose up
+    ```
+    - [**Profile.ps1**]
+    ```bash
+    set-alias d docker
+    set-alias dc docker-compose
+    set-alias g git
+    set-alias dn dotnet
+    ```
+    ```bash
+    # AFTER
+    d ps
+    d run ...
+    dc up
+    ```
 
 ## Docker Images
 
