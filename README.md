@@ -497,6 +497,22 @@ docker compose down
     d run ...
     dc up
     ```
+37. **Container hosting solutions**
+
+```bash
+- [Docker Hub]
+  - [Container Registry]
+      <- PUSH <- Image (upload)  # 1. CI/CD (build & push image)
+      -> PULL -> Image (download) -> Container (create)  # 2. Hosting solution (pull image & create container from image)
+```
+- Hosting solution (Kubernetes, Azure, AWS, etc.)
+- Azure services:
+  + Web App:
+    - Publish: Docker Container
+    - Operating System: Linux
+  + Containers:
+    + Azure Kubernetes Service (AKS)
+    + Container App
 
 ## Docker Images
 
