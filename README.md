@@ -378,8 +378,25 @@ docker compose down
     # --only-fixed          Filter to fixable CVEs
     # -o, --output string   Write report to file
     ```
+33. **Running containers as non-root**
 
-
+    - [K9s](https://k9scli.io/)
+      - Kubernetes CLI To Manage Your Clusters In Style
+      - `k9s`
+    - [**DockerCourseApi**] *update (add)* [Dockerfile](DockerCourseApi/DockerCourseApi/Dockerfile)
+      ```bash
+      # Change user to non-root (gecos means don't interactively prompt for various info about user)
+	    RUN adduser --disabled-password --gecos '' appuser
+	    USER appuser
+      ```
+    - from 'DockerCourseApi'
+      ```bash
+      docker build -f .\DockerCourseApi\Dockerfile -t api2 .
+      docker run -it --rm --entrypoint bash api2  # shell with changed user: appuser
+      # from shell 
+        > whoami  # appuser
+      docker run -it --rm -p 80:8080 --entrypoint bash api2
+      ```
 
 ## Docker Images
 
