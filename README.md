@@ -397,6 +397,28 @@ docker compose down
         > whoami  # appuser
       docker run -it --rm -p 80:8080 --entrypoint bash api2
       ```
+34. **How containers work in Linux**
+    - *from 'Linux'*
+      ```bash
+      $ ps aux | grep nginx
+      $ docker run -d nginx
+      $ ps aux | grep nginx
+      $ docker exec -it CONTAINER ID bash  # by (CONTAINER ID)
+        $ apt-get update && apy-get install -y procps 
+        $ ps aux
+        $ exit
+      $ cd /proc/PID  # by (PID ID)  $ ls
+      $ vim status
+      $ cd ns  # $ ls
+      $ sudo ns  # password  $ sudo ls
+      $ cd /sys/fs  # $ ls
+      $ cd cgroup  # $ ls
+      $ cd memory  # $ ls
+      $ cd docker  # $ ls
+      $ docker ps
+      $ cd CONTAINER ID  # by (CONTAINER ID)  $ ls
+      $ cut memory.max_usage_in_bytes  # 104329216
+      ```
 
 ## Docker Images
 
